@@ -24,11 +24,23 @@ class QRViewController: UIViewController {
     }
     
     @IBAction func createQRTapped(sender : AnyObject) {
+        var uuid = NSUUID().UUIDString
+        
         code.image = {
-            var qrCode = QRCode(NSUUID().UUIDString)!
+            var qrCode = QRCode(uuid)!
             qrCode.size = self.code.bounds.size
             return qrCode.image
         }()
+        
+        // Initialize Listener to Firebase
+        var userRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/users/"+uuid)
+        userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            var time = snapshot.value["Time"] as? String
+            var drink = snapshot.value["Drink"] as? String
+            
+            // TODO: Feed into algorithm
+            
+        })
     }
     
 
