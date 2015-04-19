@@ -320,7 +320,7 @@
                                 <color key="backgroundColor" red="0.1844040126" green="0.1844040126" blue="0.1844040126" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.85882352939999995" green="0.25490196079999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caj-6w-HNi">
                                 <rect key="frame" x="16" y="72" width="60" height="16"/>
