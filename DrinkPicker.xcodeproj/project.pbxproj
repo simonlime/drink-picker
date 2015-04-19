@@ -23,12 +23,13 @@
 		E8F780C21AE2C1210078E450 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8F780C11AE2C1210078E450 /* Images.xcassets */; };
 		E8F780C51AE2C1210078E450 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F780C31AE2C1210078E450 /* LaunchScreen.xib */; };
 		E8F780D11AE2C1210078E450 /* DrinkPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F780D01AE2C1210078E450 /* DrinkPickerTests.swift */; };
+		F46614C21AE36A9200AB3425 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46614C11AE36A9200AB3425 /* TextField.swift */; };
+		F46614C81AE392CC00AB3425 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = F46614C71AE392CC00AB3425 /* cog.png */; };
 		F4FB1C521AE2DFC4001DA739 /* QuestionaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C511AE2DFC4001DA739 /* QuestionaireViewController.swift */; };
 		F4FB1C541AE2E36D001DA739 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C531AE2E36D001DA739 /* QRViewController.swift */; };
 		F4FB1C581AE2E3FF001DA739 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C551AE2E3FF001DA739 /* CIColorExtension.swift */; };
 		F4FB1C591AE2E3FF001DA739 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C561AE2E3FF001DA739 /* QRCode.swift */; };
 		F4FB1C5A1AE2E3FF001DA739 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C571AE2E3FF001DA739 /* UIImageViewExtension.swift */; };
-		F4FB1C641AE30995001DA739 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = F4FB1C631AE30995001DA739 /* cog.png */; };
 		F4FB1C681AE30F8B001DA739 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C671AE30F8B001DA739 /* SettingsController.swift */; };
 		F4FB1C6C1AE338AB001DA739 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = F4FB1C6B1AE338AB001DA739 /* check.png */; };
 /* End PBXBuildFile section */
@@ -65,12 +66,13 @@
 		E8F780CA1AE2C1210078E450 /* DrinkPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F780CF1AE2C1210078E450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8F780D01AE2C1210078E450 /* DrinkPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkPickerTests.swift; sourceTree = "<group>"; };
+		F46614C11AE36A9200AB3425 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		F46614C71AE392CC00AB3425 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
 		F4FB1C511AE2DFC4001DA739 /* QuestionaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionaireViewController.swift; sourceTree = "<group>"; };
 		F4FB1C531AE2E36D001DA739 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		F4FB1C551AE2E3FF001DA739 /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIColorExtension.swift; sourceTree = "<group>"; };
 		F4FB1C561AE2E3FF001DA739 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		F4FB1C571AE2E3FF001DA739 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
-		F4FB1C631AE30995001DA739 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
 		F4FB1C671AE30F8B001DA739 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		F4FB1C6B1AE338AB001DA739 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				E88EC4641AE3151F00D245E2 /* SwiftRequest.swift */,
+				F46614C11AE36A9200AB3425 /* TextField.swift */,
 				F4FB1C551AE2E3FF001DA739 /* CIColorExtension.swift */,
 				F4FB1C561AE2E3FF001DA739 /* QRCode.swift */,
 				F4FB1C671AE30F8B001DA739 /* SettingsController.swift */,
@@ -151,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FB1C6B1AE338AB001DA739 /* check.png */,
-				F4FB1C631AE30995001DA739 /* cog.png */,
+				F46614C71AE392CC00AB3425 /* cog.png */,
 				E8F780B91AE2C1210078E450 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -258,9 +261,9 @@
 				E8F780C01AE2C1210078E450 /* Main.storyboard in Resources */,
 				F4FB1C6C1AE338AB001DA739 /* check.png in Resources */,
 				A0FEB92F1AE34F5E00924841 /* CustomTableViewCell.xib in Resources */,
+				F46614C81AE392CC00AB3425 /* cog.png in Resources */,
 				E8F780C51AE2C1210078E450 /* LaunchScreen.xib in Resources */,
 				E8F780C21AE2C1210078E450 /* Images.xcassets in Resources */,
-				F4FB1C641AE30995001DA739 /* cog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +284,7 @@
 				A0FEB9301AE34F5E00924841 /* MenuController.swift in Sources */,
 				F4FB1C681AE30F8B001DA739 /* SettingsController.swift in Sources */,
 				F4FB1C521AE2DFC4001DA739 /* QuestionaireViewController.swift in Sources */,
+				F46614C21AE36A9200AB3425 /* TextField.swift in Sources */,
 				F4FB1C5A1AE2E3FF001DA739 /* UIImageViewExtension.swift in Sources */,
 				F4FB1C581AE2E3FF001DA739 /* CIColorExtension.swift in Sources */,
 				E88EC4651AE3151F00D245E2 /* SwiftRequest.swift in Sources */,
@@ -426,7 +430,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrinkPicker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -448,7 +452,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrinkPicker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -11,14 +11,24 @@ import UIKit
 class QuestionaireViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var weightText : UITextField!
-    @IBOutlet var ftText : UITextField!
-    @IBOutlet var inText : UITextField!
 
+    @IBOutlet weak var nameText: TextField!
+    @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var phoneText: TextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         weightText.delegate = self
-        ftText.delegate = self
-        inText.delegate = self
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(true, forKey: "isMale")
+        let isMale = defaults.boolForKey("isMale")
+        if (isMale) {
+            maleButton.backgroundColor = UIColor(red: 219/255, green: 65/255, blue: 80/255, alpha: 1);
+        }
+        else {
+            femaleButton.backgroundColor = UIColor(red: 219/255, green: 65/255, blue: 80/255, alpha: 1);
+        }
+
         
         self.navigationController?.navigationBarHidden = true
         // Do any additional setup after loading the view.
@@ -33,27 +43,27 @@ class QuestionaireViewController: UIViewController, UITextFieldDelegate {
         // Save the user settings
         
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setDouble((weightText.text as NSString).doubleValue, forKey: "weight")
-        defaults.setDouble((ftText.text as NSString).doubleValue, forKey: "ft")
-        defaults.setDouble((inText.text as NSString).doubleValue, forKey: "in")
+        defaults.setInteger((weightText.text as NSString).integerValue, forKey: "weight")
+        defaults.setValue(nameText.text, forKey: "name")
+        defaults.setValue(phoneText.text, forKey: "phone")
         
         let qrController = self.storyboard!.instantiateViewControllerWithIdentifier("QRCodeController") as! QRViewController
         self.navigationController!.pushViewController(qrController, animated: true)
     }
     
+    @IBAction func maleSelect(sender: AnyObject) {
+        maleButton.backgroundColor = UIColor(red: 219/255, green: 65/255, blue: 80/255, alpha: 1);
+        femaleButton.backgroundColor = UIColor(red: 42/255, green: 42/255, blue: 42/255, alpha: 1);
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(true, forKey: "isMale")
+    }
+    @IBAction func femaleSelect(sender: AnyObject) {
+        femaleButton.backgroundColor = UIColor(red: 219/255, green: 65/255, blue: 80/255, alpha: 1);
+        maleButton.backgroundColor = UIColor(red: 42/255, green: 42/255, blue: 42/255, alpha: 1);
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(false, forKey: "isMale")
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if (textField === weightText) {
-            ftText.becomeFirstResponder()
-            weightText.resignFirstResponder()
-        }
-        else if (textField === ftText) {
-            inText.becomeFirstResponder()
-            ftText.resignFirstResponder()
-        }
-        else if (textField === inText) {
-            inText.resignFirstResponder()
-        }
-        
         return true
     }
     
