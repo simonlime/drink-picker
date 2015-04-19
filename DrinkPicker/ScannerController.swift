@@ -16,6 +16,7 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     var qrCodeFrameView:UIView?
     
     var scannedString: String = ""
+    var drinkString: String = ""
     
     @IBOutlet weak var messageLabel:UILabel!
     
@@ -86,9 +87,10 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 scannedString = metadataObj.stringValue
                 messageLabel.text = scannedString
                 self.captureSession.stopRunning()
-                var uuid = NSUUID().UUIDString
+                
+                var uuid = scannedString
                 var date = NSDate()
-                var drink = "Beer"
+                var drink = drinkString
                 
                 // Update Firebase with new user and drink
                 var rootRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/")

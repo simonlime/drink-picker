@@ -41,6 +41,7 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // go to scanner
         let scanner = self.storyboard?.instantiateViewControllerWithIdentifier("scanner") as! ScannerController
+        scanner.drinkString = items[indexPath.row]
         self.navigationController?.pushViewController(scanner, animated: true)
     }
     
