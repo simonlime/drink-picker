@@ -31,7 +31,7 @@ class SettingsController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         weightText.text = String(format:"%d", defaults.integerForKey("weight"))
         nameText.text = defaults.valueForKey("name") as! String
-        phoneText.text = String(format:"%d", defaults.integerForKey("phone"))
+        phoneText.text = defaults.valueForKey("phone") as! String
         let isMale = defaults.boolForKey("isMale")
         if (isMale) {
             maleButton.backgroundColor = UIColor(red: 219/255, green: 65/255, blue: 80/255, alpha: 1);
