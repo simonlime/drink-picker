@@ -66,82 +66,78 @@ class QRViewController: UIViewController {
     
     @IBAction func createQRTapped(sender : AnyObject) {
         
-        if (!initialized) {
+        var uuid = NSUUID().UUIDString
+        
+        code.image = {
+            var qrCode = QRCode(uuid)!
+            qrCode.size = self.code.bounds.size
+            return qrCode.image
+            }()
+        
+        // Initializations
+        defaults.setDouble(0.0, forKey: "currentDrinks")
+        defaults.setDouble(0.0, forKey: "currentBAC")
+        defaults.setValue("\(NSDate())", forKey: "lastCalcDate")
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss zzz"
+        
+        // Listener to Firebase
+        var userRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/users/"+uuid)
+        userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            var time = snapshot.value["Time"] as! String
+            var drink_name = snapshot.value["DrinkName"] as! String
+            var num_drinks = (snapshot.value["NumDrinks"] as! NSString).doubleValue
             
-            var uuid = NSUUID().UUIDString
+            // Update BAC and notify if "limits" reached
+            self.defaults.setDouble(self.defaults.doubleForKey("currentDrinks") + num_drinks, forKey: "currentDrinks")
+            self.dissipateDrinks()
+            self.defaults.setValue("\(NSDate())", forKey: "lastCalcDate")
             
-            code.image = {
-                var qrCode = QRCode(uuid)!
-                qrCode.size = self.code.bounds.size
-                return qrCode.image
-                }()
-            
-            // Initializations
-            defaults.setDouble(0.0, forKey: "currentDrinks")
-            defaults.setDouble(0.0, forKey: "currentBAC")
-            defaults.setValue("\(NSDate())", forKey: "lastCalcDate")
-            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss zzz"
-            
-            // Listener to Firebase
-            var userRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/users/"+uuid)
-            userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-                var time = snapshot.value["Time"] as! String
-                var drink_name = snapshot.value["DrinkName"] as! String
-                var num_drinks = (snapshot.value["NumDrinks"] as! NSString).doubleValue
+            var BAC = self.calcBAC()
+            if (BAC > 0.06) {
+                // Twilio Code
+                var swiftRequest = SwiftRequest()
+                var account_sid = "ACb130d0fe5a782ab315ef7bf3cf6c359b"
+                var auth_token = "85b546785dd5c7009f1c7e09a059d025"
+                var name = self.defaults.valueForKey("name") as! String
+                var friend_phone = self.defaults.valueForKey("phone") as! String
+                var data = [
+                    "To" : friend_phone,
+                    "From" : "+17027897673",
+                    "Body" : "Hi responsible citizen! Your friend " + name + " has had too much to drink. Please pick him/her up at <location>. Sincerely, Sipper"
+                ]
                 
-                // Update BAC and notify if "limits" reached
-                self.defaults.setDouble(self.defaults.doubleForKey("currentDrinks") + num_drinks, forKey: "currentDrinks")
-                self.dissipateDrinks()
-                self.defaults.setValue("\(NSDate())", forKey: "lastCalcDate")
+                swiftRequest.post("https://api.twilio.com/2010-04-01/Accounts/"+account_sid+"/Messages",
+                    auth: ["username" : account_sid, "password" : auth_token],
+                    data: data,
+                    callback: {err, response, body in
+                        if err == nil {
+                            println("Success: \(response)")
+                        } else {
+                            println("Error: \(err)")
+                        }
+                });
                 
-                var BAC = self.calcBAC()
-                if (BAC > 0.06) {
-                    // Twilio Code
-                    var swiftRequest = SwiftRequest()
-                    var account_sid = "ACb130d0fe5a782ab315ef7bf3cf6c359b"
-                    var auth_token = "85b546785dd5c7009f1c7e09a059d025"
-                    var name = self.defaults.valueForKey("name") as! String
-                    var friend_phone = self.defaults.valueForKey("phone") as! String
-                    var data = [
-                        "To" : friend_phone,
-                        "From" : "+17027897673",
-                        "Body" : "Hi responsible citizen! Your friend " + name + " has had too much to drink. Please pick him/her up at <location>. Sincerely, Sipper"
-                    ]
-                    
-                    swiftRequest.post("https://api.twilio.com/2010-04-01/Accounts/"+account_sid+"/Messages",
-                        auth: ["username" : account_sid, "password" : auth_token],
-                        data: data,
-                        callback: {err, response, body in
-                            if err == nil {
-                                println("Success: \(response)")
-                            } else {
-                                println("Error: \(err)")
-                            }
-                    });
-                    
-                    // Notification Code
-                    var notification = UILocalNotification()
-                    notification.alertBody = "Sorry friend, you're over your limit :<" // text that will be displayed in the notification
-                    notification.alertAction = "Acknowledge" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-                    notification.fireDate = NSDate().dateByAddingTimeInterval(60) // todo item due date (when notification will be fired)
-                    notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
-                    
-                } else if (BAC >= 0.05) {
-                    
-                    // Notification Code
-                    var notification = UILocalNotification()
-                    notification.alertBody = "Sipper recommends you stay at this buzz for max enjoyment" // text that will be displayed in the notification
-                    notification.alertAction = "Thumbs Up!" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-                    notification.fireDate = NSDate().dateByAddingTimeInterval(60) // todo item due date (when notification will be fired)
-                    notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
-                    
-                }
-            })
+                // Notification Code
+                var notification = UILocalNotification()
+                notification.alertBody = "Sorry friend, you're over your limit :<" // text that will be displayed in the notification
+                notification.alertAction = "Acknowledge" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+                notification.fireDate = NSDate().dateByAddingTimeInterval(60) // todo item due date (when notification will be fired)
+                notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                
+            } else if (BAC >= 0.05) {
+                
+                // Notification Code
+                var notification = UILocalNotification()
+                notification.alertBody = "Sipper recommends you stay at this buzz for max enjoyment" // text that will be displayed in the notification
+                notification.alertAction = "Thumbs Up!" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+                notification.fireDate = NSDate().dateByAddingTimeInterval(60) // todo item due date (when notification will be fired)
+                notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                
+            }
+        })
             
-            initialized = true;
-        }
         
     }
     
