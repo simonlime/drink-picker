@@ -17,9 +17,11 @@ class QRViewController: UIViewController {
     
     @IBOutlet weak var code : UIImageView!
     
+    @IBOutlet weak var progress: UIProgressView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        progress.setProgress(0, animated: true)
         // Do any additional setup after loading the view.
     }
     
@@ -57,7 +59,8 @@ class QRViewController: UIViewController {
         var lastDate = dateFormatter.dateFromString(lastDateString)
         var secondsElapsed = NSDate().timeIntervalSinceDate(lastDate!)
         defaults.setDouble(n - (secondsElapsed/3600)*(0.015*W*r/(0.6*5.14)), forKey: "currentDrinks")
-        
+        let bac = calcBAC()
+        progress.setProgress(Float(calcBAC()/0.06), animated: true)
         // Re-run after 5 minutes have elapsed
         delay(300) {
             self.dissipateDrinks()
