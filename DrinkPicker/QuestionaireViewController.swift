@@ -45,7 +45,7 @@ class QuestionaireViewController: UIViewController, UITextFieldDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger((weightText.text as NSString).integerValue, forKey: "weight")
         defaults.setValue(nameText.text, forKey: "name")
-        defaults.setValue(phoneText.text, forKey: "phone")
+        defaults.setInteger((phoneText.text as NSString).integerValue, forKey: "phone")
         
         let qrController = self.storyboard!.instantiateViewControllerWithIdentifier("QRCodeController") as! QRViewController
         self.navigationController!.pushViewController(qrController, animated: true)
