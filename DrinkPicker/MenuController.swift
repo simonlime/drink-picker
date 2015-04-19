@@ -18,7 +18,8 @@ class CustomTableViewCell : UITableViewCell {
 
 class MenuController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var drinks: [String] = ["Beer", "Wine", "Liquor"]
+    var drinks: [String] = ["12oz Beer", "5oz Wine"]
+    var nums: [String] = ["1", "1"]
     
     @IBOutlet var tableView: UITableView!
     
@@ -40,7 +41,8 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // go to scanner
         let scanner = self.storyboard?.instantiateViewControllerWithIdentifier("scanner") as! ScannerController
-        scanner.drinkString = drinks[indexPath.row]
+        scanner.drinkNameFromMenu = drinks[indexPath.row]
+        scanner.numDrinksFromMenu = nums[indexPath.row]
         self.navigationController?.pushViewController(scanner, animated: true)
     }
     
@@ -53,6 +55,7 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             drinks.removeAtIndex(indexPath.row)
+            nums.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
@@ -80,6 +83,7 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let nextAction: UIAlertAction = UIAlertAction(title: "Next", style: .Default) { action -> Void in
             self.drinks.append(nameTextField!.text)
+            self.nums.append(numTextField!.text)
             self.tableView.reloadData()
         }
         actionSheetController.addAction(nextAction)

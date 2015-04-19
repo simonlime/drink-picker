@@ -16,7 +16,8 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     var qrCodeFrameView:UIView?
     
     var scannedString: String = ""
-    var drinkString: String = ""
+    var drinkNameFromMenu: String = ""
+    var numDrinksFromMenu: String = ""
     
     @IBOutlet weak var messageLabel:UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -96,12 +97,13 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 
                 var uuid = scannedString
                 var date = NSDate()
-                var drink = drinkString
+                var drinkName = drinkNameFromMenu
+                var numDrinks = numDrinksFromMenu
                 
                 // Update Firebase with new user and drink
                 var rootRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/")
                 var userRef = rootRef.childByAppendingPath("users/" + uuid)
-                userRef.childByAutoId().setValue(["Time": "\(date)", "Drink": drink])
+                userRef.childByAutoId().setValue(["Time": "\(date)", "DrinkName": drinkName, "NumDrinks": numDrinks])
             }
         }
         
