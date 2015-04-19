@@ -43,6 +43,87 @@
             </objects>
             <point key="canvasLocation" x="182.40000000000001" y="276.89999999999998"/>
         </scene>
+        <!--Menu Controller-->
+        <scene sceneID="7OV-Mv-emZ">
+            <objects>
+                <viewController storyboardIdentifier="menu" id="Xlo-Ux-WMV" customClass="MenuController" customModule="DrinkPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dSL-ng-rsY"/>
+                        <viewControllerLayoutGuide type="bottom" id="A1l-Oc-fAM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LIv-YB-wNX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" rowHeight="88" sectionHeaderHeight="1" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="vSD-RE-Znc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xlo-Ux-WMV" id="6eK-ae-3eW"/>
+                                    <outlet property="delegate" destination="Xlo-Ux-WMV" id="wla-WO-dMV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4St-hG-81j">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vSD-RE-Znc" id="dvY-5Z-ks9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7VS-yS-oml" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1138" y="46"/>
+        </scene>
+        <!--Scanner Controller-->
+        <scene sceneID="J9A-LP-Mfr">
+            <objects>
+                <viewController storyboardIdentifier="scanner" id="QXo-gT-mVr" customClass="ScannerController" customModule="DrinkPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RdF-FY-1fD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xjh-92-jOB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w5E-Gl-WrC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No QR Code is Detected." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lc-Fe-LaN">
+                                <rect key="frame" x="65" y="539" width="195" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="4lc-Fe-LaN" id="hBr-sj-UdQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2UQ-yD-Goj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="46"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DHH-bn-K3s">
+            <objects>
+                <navigationController storyboardIdentifier="CameraNav" automaticallyAdjustsScrollViewInsets="NO" id="IkC-yp-Y36" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6dT-98-ZJe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xlo-Ux-WMV" kind="relationship" relationship="rootViewController" id="isB-x8-ih8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4FJ-Ae-D6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="46"/>
+        </scene>
         <!--Questionaire View Controller-->
         <scene sceneID="vri-8d-3kL">
             <objects>
