@@ -18,12 +18,12 @@ class CustomTableViewCell : UITableViewCell {
 
 class MenuController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var tableView: UITableView!
-    
     var items: [String] = ["Beer", "Wine", "Liquor"]
     
+    @IBOutlet var tableView: UITableView!
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count;
+        return items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -43,6 +43,17 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
         let scanner = self.storyboard?.instantiateViewControllerWithIdentifier("scanner") as! ScannerController
         scanner.drinkString = items[indexPath.row]
         self.navigationController?.pushViewController(scanner, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            items.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
     
     override func viewDidLoad() {
