@@ -53,6 +53,16 @@ class QRViewController: UIViewController {
 //                }
 //        });
         
+        // Notification Code
+        var notification = UILocalNotification()
+        notification.alertBody = "Jeeves recommends you slow down.. :<" // text that will be displayed in the notification
+        notification.alertAction = "neglect Jeeves" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
+        notification.fireDate = NSDate().dateByAddingTimeInterval(30) // todo item due date (when notification will be fired)
+        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        notification.userInfo = ["UUID": uuid ] // assign a unique identifier to the notification so that we can retrieve it later
+        notification.category = "Limit_CATEGORY"
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        
         // Initialize Listener to Firebase
         var userRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/users/"+uuid)
         userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
