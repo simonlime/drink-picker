@@ -16,8 +16,15 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     var qrCodeFrameView:UIView?
     
     var scannedString: String = ""
+    var drinkNameFromMenu: String = ""
+    var numDrinksFromMenu: String = ""
     
     @IBOutlet weak var messageLabel:UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBAction func returnToMenu(sender: UIButton) {
+        self.navigationController!.popViewControllerAnimated(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +63,7 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         
         // Move the message label to the top view.
         view.bringSubviewToFront(messageLabel)
+        view.bringSubviewToFront(backButton)
         
         // Initialize QR Code Frame to highlight the QR code.
         qrCodeFrameView = UIView()
@@ -86,14 +94,16 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 scannedString = metadataObj.stringValue
                 messageLabel.text = scannedString
                 self.captureSession.stopRunning()
-                var uuid = NSUUID().UUIDString
+                
+                var uuid = scannedString
                 var date = NSDate()
-                var drink = "Beer"
+                var drinkName = drinkNameFromMenu
+                var numDrinks = numDrinksFromMenu
                 
                 // Update Firebase with new user and drink
                 var rootRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/")
                 var userRef = rootRef.childByAppendingPath("users/" + uuid)
-                userRef.childByAutoId().setValue(["Time": "\(date)", "Drink": drink])
+                userRef.childByAutoId().setValue(["Time": "\(date)", "DrinkName": drinkName, "NumDrinks": numDrinks])
             }
         }
         
