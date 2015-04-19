@@ -435,7 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrinkPicker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -457,7 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrinkPicker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
