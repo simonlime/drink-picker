@@ -32,6 +32,27 @@ class QRViewController: UIViewController {
             return qrCode.image
         }()
         
+//        // Twilio Code
+//        var swiftRequest = SwiftRequest()
+//        var account_sid = "ACb130d0fe5a782ab315ef7bf3cf6c359b"
+//        var auth_token = "85b546785dd5c7009f1c7e09a059d025"
+//        var data = [
+//            "To" : "+17025457039",
+//            "From" : "+17027897673",
+//            "Body" : "Bro, you Gucci?"
+//        ]
+//        
+//        swiftRequest.post("https://api.twilio.com/2010-04-01/Accounts/"+account_sid+"/Messages",
+//            auth: ["username" : account_sid, "password" : auth_token],
+//            data: data,
+//            callback: {err, response, body in
+//                if err == nil {
+//                    println("Success: \(response)")
+//                } else {
+//                    println("Error: \(err)")
+//                }
+//        });
+        
         // Initialize Listener to Firebase
         var userRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/users/"+uuid)
         userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
@@ -39,6 +60,8 @@ class QRViewController: UIViewController {
             var drink = snapshot.value["Drink"] as? String
             
             // TODO: Feed into algorithm
+            
+            
             
         })
     }
