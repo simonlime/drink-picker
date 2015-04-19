@@ -86,6 +86,14 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 scannedString = metadataObj.stringValue
                 messageLabel.text = scannedString
                 self.captureSession.stopRunning()
+                var uuid = NSUUID().UUIDString
+                var date = NSDate()
+                var drink = "Beer"
+                
+                // Update Firebase with new user and drink
+                var rootRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/")
+                var userRef = rootRef.childByAppendingPath("users/" + uuid)
+                userRef.childByAutoId().setValue(["Time": "\(date)", "Drink": drink])
             }
         }
         
