@@ -13,7 +13,10 @@ class QRViewController: UIViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     let dateFormatter = NSDateFormatter()
     
-    var initialized = false;
+    var initialized = false
+    var uuid = NSUUID().UUIDString
+    
+    @IBOutlet var pebbleButton : UIButton!
     
     @IBOutlet weak var code : UIImageView!
     
@@ -28,6 +31,10 @@ class QRViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func pebbleUUID(sender: AnyObject) {
+        UIPasteboard.generalPasteboard().string = uuid
     }
     
     // Delay Function taken from interwebs that starts calculation after x seconds
@@ -71,13 +78,11 @@ class QRViewController: UIViewController {
         
         if(!initialized) {
             
-            var uuid = NSUUID().UUIDString
-            
             code.image = {
-                var qrCode = QRCode(uuid)!
+                var qrCode = QRCode(self.uuid)!
                 qrCode.size = self.code.bounds.size
                 return qrCode.image
-                }()
+            }()
             
             // Initializations
             defaults.setDouble(0.0, forKey: "currentDrinks")
