@@ -22,12 +22,8 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var tableView: UITableView!
     
-    @IBAction func editMenu(sender: UIBarButtonItem) {
-        self.editing = !self.editing
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count;
+        return items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -49,14 +45,15 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationController?.pushViewController(scanner, animated: true)
     }
     
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        var itemToMove = items[fromIndexPath.row]
-        items.removeAtIndex(fromIndexPath.row)
-        items.insert(itemToMove, atIndex: toIndexPath.row)
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            items.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
     
     override func viewDidLoad() {
