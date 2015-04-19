@@ -55,6 +55,11 @@ class QRViewController: UIViewController {
         var lastDate = dateFormatter.dateFromString(lastDateString)
         var secondsElapsed = NSDate().timeIntervalSinceDate(lastDate!)
         defaults.setDouble(n - ((W*r*secondsElapsed)/(0.6*5.14*0.015*3600)), forKey: "currentDrinks")
+        
+        // Re-run after 5 minutes have elapsed
+        delay(300) {
+            self.dissipateDrinks()
+        }
     }
     
     @IBAction func createQRTapped(sender : AnyObject) {
