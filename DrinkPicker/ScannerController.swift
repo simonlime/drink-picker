@@ -19,6 +19,11 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     var drinkString: String = ""
     
     @IBOutlet weak var messageLabel:UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBAction func returnToMenu(sender: UIButton) {
+        self.navigationController!.popViewControllerAnimated(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +62,7 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         
         // Move the message label to the top view.
         view.bringSubviewToFront(messageLabel)
+        view.bringSubviewToFront(backButton)
         
         // Initialize QR Code Frame to highlight the QR code.
         qrCodeFrameView = UIView()
