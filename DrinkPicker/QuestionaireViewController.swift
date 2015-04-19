@@ -29,7 +29,14 @@ class QuestionaireViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func nextView(sender: AnyObject) {
+    @IBAction func nextView(snder: AnyObject) {
+        // Save the user settings
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setDouble((weightText.text as NSString).doubleValue, forKey: "weight")
+        defaults.setDouble((ftText.text as NSString).doubleValue, forKey: "ft")
+        defaults.setDouble((inText.text as NSString).doubleValue, forKey: "in")
+        
         let qrController = self.storyboard!.instantiateViewControllerWithIdentifier("QRCodeController") as! QRViewController
         self.navigationController!.pushViewController(qrController, animated: true)
     }

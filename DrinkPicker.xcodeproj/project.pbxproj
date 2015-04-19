@@ -24,6 +24,9 @@
 		F4FB1C581AE2E3FF001DA739 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C551AE2E3FF001DA739 /* CIColorExtension.swift */; };
 		F4FB1C591AE2E3FF001DA739 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C561AE2E3FF001DA739 /* QRCode.swift */; };
 		F4FB1C5A1AE2E3FF001DA739 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C571AE2E3FF001DA739 /* UIImageViewExtension.swift */; };
+		F4FB1C641AE30995001DA739 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = F4FB1C631AE30995001DA739 /* cog.png */; };
+		F4FB1C681AE30F8B001DA739 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB1C671AE30F8B001DA739 /* SettingsController.swift */; };
+		F4FB1C6C1AE338AB001DA739 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = F4FB1C6B1AE338AB001DA739 /* check.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		F4FB1C551AE2E3FF001DA739 /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIColorExtension.swift; sourceTree = "<group>"; };
 		F4FB1C561AE2E3FF001DA739 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		F4FB1C571AE2E3FF001DA739 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		F4FB1C631AE30995001DA739 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
+		F4FB1C671AE30F8B001DA739 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		F4FB1C6B1AE338AB001DA739 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 			children = (
 				F4FB1C551AE2E3FF001DA739 /* CIColorExtension.swift */,
 				F4FB1C561AE2E3FF001DA739 /* QRCode.swift */,
+				F4FB1C671AE30F8B001DA739 /* SettingsController.swift */,
 				F4FB1C571AE2E3FF001DA739 /* UIImageViewExtension.swift */,
 				E8F780BA1AE2C1210078E450 /* AppDelegate.swift */,
 				E8F780BC1AE2C1210078E450 /* ViewController.swift */,
@@ -131,6 +138,8 @@
 		E8F780B81AE2C1210078E450 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F4FB1C6B1AE338AB001DA739 /* check.png */,
+				F4FB1C631AE30995001DA739 /* cog.png */,
 				E8F780B91AE2C1210078E450 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -235,8 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8F780C01AE2C1210078E450 /* Main.storyboard in Resources */,
+				F4FB1C6C1AE338AB001DA739 /* check.png in Resources */,
 				E8F780C51AE2C1210078E450 /* LaunchScreen.xib in Resources */,
 				E8F780C21AE2C1210078E450 /* Images.xcassets in Resources */,
+				F4FB1C641AE30995001DA739 /* cog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4FB1C681AE30F8B001DA739 /* SettingsController.swift in Sources */,
 				F4FB1C521AE2DFC4001DA739 /* QuestionaireViewController.swift in Sources */,
 				F4FB1C5A1AE2E3FF001DA739 /* UIImageViewExtension.swift in Sources */,
 				F4FB1C581AE2E3FF001DA739 /* CIColorExtension.swift in Sources */,

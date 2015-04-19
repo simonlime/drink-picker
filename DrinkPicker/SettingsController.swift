@@ -1,5 +1,5 @@
 //
-//  QRViewController.swift
+//  SettingsController.swift
 //  DrinkPicker
 //
 //  Created by Simon Li on 4/18/15.
@@ -8,39 +8,28 @@
 
 import UIKit
 
-class QRViewController: UIViewController {
-    
-    @IBOutlet weak var code : UIImageView!
+class SettingsController: UIViewController {
 
+    @IBOutlet weak var weightText: UITextField!
+    @IBOutlet weak var ftText: UITextField!
+    @IBOutlet weak var inText: UITextField!
+    
+    @IBAction func save(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {})
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        weightText.text = String(format:"%f", defaults.integerForKey("weight"))
+        ftText.text = String(format:"%f", defaults.integerForKey("ft"))
+        inText.text = String(format:"%f", defaults.integerForKey("in"))
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func createQRTapped(sender : AnyObject) {
-        var uuid = NSUUID().UUIDString
-        
-        code.image = {
-            var qrCode = QRCode(uuid)!
-            qrCode.size = self.code.bounds.size
-            return qrCode.image
-        }()
-        
-        // Initialize Listener to Firebase
-        var userRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/users/"+uuid)
-        userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            var time = snapshot.value["Time"] as? String
-            var drink = snapshot.value["Drink"] as? String
-            
-            // TODO: Feed into algorithm
-            
-        })
     }
     
 
