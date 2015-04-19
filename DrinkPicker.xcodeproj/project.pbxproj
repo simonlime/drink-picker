@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A03C22691AE31D8400D5E5AE /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A03C22681AE31D8400D5E5AE /* CustomTableViewCell.xib */; };
+		A0BE2BC81AE2CCE600DBAC14 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE2BC71AE2CCE600DBAC14 /* MenuController.swift */; };
+		A0BE2BCA1AE2CD0300DBAC14 /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BE2BC91AE2CD0300DBAC14 /* ScannerController.swift */; };
 		E8F780BB1AE2C1210078E450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F780BA1AE2C1210078E450 /* AppDelegate.swift */; };
 		E8F780BD1AE2C1210078E450 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F780BC1AE2C1210078E450 /* ViewController.swift */; };
 		E8F780C01AE2C1210078E450 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F780BE1AE2C1210078E450 /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A03C22681AE31D8400D5E5AE /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		A0BE2BC71AE2CCE600DBAC14 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		A0BE2BC91AE2CD0300DBAC14 /* ScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
 		E8F780B51AE2C1210078E450 /* DrinkPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F780B91AE2C1210078E450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8F780BA1AE2C1210078E450 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 				E8F780C11AE2C1210078E450 /* Images.xcassets */,
 				E8F780C31AE2C1210078E450 /* LaunchScreen.xib */,
 				E8F780B81AE2C1210078E450 /* Supporting Files */,
+				A0BE2BC71AE2CCE600DBAC14 /* MenuController.swift */,
+				A0BE2BC91AE2CD0300DBAC14 /* ScannerController.swift */,
+				A03C22681AE31D8400D5E5AE /* CustomTableViewCell.xib */,
 			);
 			path = DrinkPicker;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 				TargetAttributes = {
 					E8F780B41AE2C1210078E450 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 3WRSTL4CJR;
 					};
 					E8F780C91AE2C1210078E450 = {
 						CreatedOnToolsVersion = 6.3;
@@ -194,6 +204,7 @@
 			files = (
 				E8F780C01AE2C1210078E450 /* Main.storyboard in Resources */,
 				E8F780C51AE2C1210078E450 /* LaunchScreen.xib in Resources */,
+				A03C22691AE31D8400D5E5AE /* CustomTableViewCell.xib in Resources */,
 				E8F780C21AE2C1210078E450 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BE2BCA1AE2CD0300DBAC14 /* ScannerController.swift in Sources */,
 				E8F780BD1AE2C1210078E450 /* ViewController.swift in Sources */,
+				A0BE2BC81AE2CCE600DBAC14 /* MenuController.swift in Sources */,
 				E8F780BB1AE2C1210078E450 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,9 +353,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DrinkPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
 			};
 			name = Debug;
 		};
@@ -350,9 +366,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DrinkPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
 			};
 			name = Release;
 		};
@@ -409,6 +428,7 @@
 				E8F780D61AE2C1210078E450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E8F780D71AE2C1210078E450 /* Build configuration list for PBXNativeTarget "DrinkPickerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +437,7 @@
 				E8F780D91AE2C1210078E450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
