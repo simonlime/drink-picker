@@ -92,7 +92,7 @@ class ScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         // TODO: Firebase stuff
         
         // Exit the view
-        self.navigationController!.popToRootViewControllerAnimated(true)
+        self.navigationController!.popViewControllerAnimated(true)
     }
     
     override func didReceiveMemoryWarning() {

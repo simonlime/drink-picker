@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0FEB92F1AE34F5E00924841 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FEB92C1AE34F5E00924841 /* CustomTableViewCell.xib */; };
+		A0FEB9301AE34F5E00924841 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FEB92D1AE34F5E00924841 /* MenuController.swift */; };
+		A0FEB9311AE34F5E00924841 /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FEB92E1AE34F5E00924841 /* ScannerController.swift */; };
 		E83EE54C1AE2FCC800FB44EB /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83EE54B1AE2FCC800FB44EB /* Firebase.framework */; };
 		E83EE54E1AE2FCE300FB44EB /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E83EE54D1AE2FCE300FB44EB /* libicucore.dylib */; };
 		E83EE5501AE2FCEB00FB44EB /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E83EE54F1AE2FCEB00FB44EB /* libc++.dylib */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0FEB92C1AE34F5E00924841 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		A0FEB92D1AE34F5E00924841 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		A0FEB92E1AE34F5E00924841 /* ScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
 		E83EE54B1AE2FCC800FB44EB /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = DrinkPicker/Firebase.framework; sourceTree = "<group>"; };
 		E83EE54D1AE2FCE300FB44EB /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		E83EE54F1AE2FCEB00FB44EB /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -128,6 +134,9 @@
 				F4FB1C571AE2E3FF001DA739 /* UIImageViewExtension.swift */,
 				E8F780BA1AE2C1210078E450 /* AppDelegate.swift */,
 				E8F780BC1AE2C1210078E450 /* ViewController.swift */,
+				A0FEB92C1AE34F5E00924841 /* CustomTableViewCell.xib */,
+				A0FEB92D1AE34F5E00924841 /* MenuController.swift */,
+				A0FEB92E1AE34F5E00924841 /* ScannerController.swift */,
 				F4FB1C531AE2E36D001DA739 /* QRViewController.swift */,
 				E8F780BE1AE2C1210078E450 /* Main.storyboard */,
 				F4FB1C511AE2DFC4001DA739 /* QuestionaireViewController.swift */,
@@ -214,6 +223,7 @@
 				TargetAttributes = {
 					E8F780B41AE2C1210078E450 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 3WRSTL4CJR;
 					};
 					E8F780C91AE2C1210078E450 = {
 						CreatedOnToolsVersion = 6.3;
@@ -247,6 +257,7 @@
 			files = (
 				E8F780C01AE2C1210078E450 /* Main.storyboard in Resources */,
 				F4FB1C6C1AE338AB001DA739 /* check.png in Resources */,
+				A0FEB92F1AE34F5E00924841 /* CustomTableViewCell.xib in Resources */,
 				E8F780C51AE2C1210078E450 /* LaunchScreen.xib in Resources */,
 				E8F780C21AE2C1210078E450 /* Images.xcassets in Resources */,
 				F4FB1C641AE30995001DA739 /* cog.png in Resources */,
@@ -267,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FEB9301AE34F5E00924841 /* MenuController.swift in Sources */,
 				F4FB1C681AE30F8B001DA739 /* SettingsController.swift in Sources */,
 				F4FB1C521AE2DFC4001DA739 /* QuestionaireViewController.swift in Sources */,
 				F4FB1C5A1AE2E3FF001DA739 /* UIImageViewExtension.swift in Sources */,
@@ -274,6 +286,7 @@
 				E88EC4651AE3151F00D245E2 /* SwiftRequest.swift in Sources */,
 				E8F780BD1AE2C1210078E450 /* ViewController.swift in Sources */,
 				E8F780BB1AE2C1210078E450 /* AppDelegate.swift in Sources */,
+				A0FEB9311AE34F5E00924841 /* ScannerController.swift in Sources */,
 				F4FB1C541AE2E36D001DA739 /* QRViewController.swift in Sources */,
 				F4FB1C591AE2E3FF001DA739 /* QRCode.swift in Sources */,
 			);
@@ -413,7 +426,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrinkPicker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -435,7 +448,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "67477a24-6f9e-4c73-bbe4-eeaef8c87e53";
 				SWIFT_OBJC_BRIDGING_HEADER = "DrinkPicker-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
