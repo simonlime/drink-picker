@@ -66,7 +66,7 @@ class QRViewController: UIViewController {
     
     @IBAction func createQRTapped(sender : AnyObject) {
         
-        if (!initialized) {
+        if(!initialized) {
             
             var uuid = NSUUID().UUIDString
             
@@ -80,7 +80,7 @@ class QRViewController: UIViewController {
             defaults.setDouble(0.0, forKey: "currentDrinks")
             defaults.setDouble(0.0, forKey: "currentBAC")
             defaults.setValue("\(NSDate())", forKey: "lastCalcDate")
-            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss zzz"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
             
             // Listener to Firebase
             var userRef = Firebase(url:"https://blazing-inferno-583.firebaseio.com/users/"+uuid)
