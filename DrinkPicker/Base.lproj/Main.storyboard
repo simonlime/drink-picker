@@ -72,6 +72,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="4St-hG-81j">
                         <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KOQ-a1-HHP">
+                            <connections>
+                                <action selector="addDrinkDialogue:" destination="Xlo-Ux-WMV" id="Xzc-iO-OAc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vSD-RE-Znc" id="dvY-5Z-ks9"/>
