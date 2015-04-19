@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>2B39BF9A-A5FB-4142-88B5-7BC66292CF94</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>DrinkPicker</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>86D94A512A17109790ED084FB570D8FA3A0892AA</key>
 		<string>https://github.com/simonlime/drink-picker.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>DrinkPicker.xcodeproj/project.xcworkspace</string>
+	<string>DrinkPicker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>86D94A512A17109790ED084FB570D8FA3A0892AA</key>

@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var bargoerButton : UIButton!
+    @IBOutlet var bartenderButton : UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func bargoerTapped(sender : AnyObject) {
+    }
+    
+    @IBAction func bartenderTapped(sender : AnyObject) {
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        
+        return true
+    }
 
 }
 
